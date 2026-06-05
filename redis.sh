@@ -20,4 +20,6 @@ VALIDATE $? "changing protected-mode to no and allowing local connections"
 systemctl enable redis &>>$LOG_FILE
 VALIDATE $? "Enabling Redis"
 
+service_restart
+
 print_total_time

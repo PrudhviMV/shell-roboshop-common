@@ -61,6 +61,17 @@ python_setup(){
     VALIDATE $? "Installing Python"
 }
 
+nginx_setup(){
+    dnf module disable nginx -y
+    VALIDATE $? "Disabling Nginx"
+
+    dnf module enable nginx:1.24 -y
+    VALIDATE $? "Enabling Nginx"
+
+    dnf install nginx -y
+    VALIDATE $? "Installing Nginx"
+}
+
 java_setup(){
     dnf install maven -y &>>$LOG_FILE
     VALIDATE $? "Installing maven"

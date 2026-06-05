@@ -92,8 +92,8 @@ service_setup(){
 }
 
 service_restart(){
-    systemctl restart catalogue &>>$LOG_FILE
-    VALIDATE $? "Restarted catalogue"
+    systemctl restart $app_name &>>$LOG_FILE
+    VALIDATE $? "Restarted $app_name"
 }
 
 print_total_time(){
